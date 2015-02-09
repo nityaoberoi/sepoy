@@ -1781,7 +1781,7 @@ html {
 
 /* line 27, ../../../../../.rvm/gems/ruby-2.1.5@global/gems/bootstrap-sass-3.3.3/assets/stylesheets/bootstrap/_scaffolding.scss */
 body {
-  font-family: "Novocento", "Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 1.42857143;
   color: #333333;
@@ -7730,7 +7730,7 @@ button.close {
   z-index: 1070;
   display: block;
   visibility: visible;
-  font-family: "Novocento", "Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: normal;
   line-height: 1.4;
@@ -7857,7 +7857,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Novocento", "Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-weight: normal;
   line-height: 1.42857143;
@@ -8647,15 +8647,20 @@ body {
 }
 
 /* line 25, ../scss/pages/_base.scss */
-.navbar-nav {
-  margin: 1em auto 30px;
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+/* line 31, ../scss/pages/_base.scss */
+.navbar .navbar-collapse {
   text-align: center;
 }
 
-/* line 30, ../scss/pages/_base.scss */
+/* line 35, ../scss/pages/_base.scss */
 .navbar-nav > li {
-  margin: 1.25em 0;
-  font-family: "Novocento", "Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
   font-weight: 400;
   line-height: 1.25em;
   letter-spacing: 4px;
@@ -8668,26 +8673,24 @@ body {
   font-style: normal;
 }
 
-@media (min-width: 768px) {
+/* line 49, ../scss/pages/_base.scss */
+.navbar-inverse .navbar-brand {
+  display: none;
+}
+
+@media (max-width: 767px) {
   /* line 2, ../scss/_media.scss */
-  .navbar-brand {
-    display: none;
+  .navbar-inverse .navbar-brand {
+    display: block;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    text-transform: uppercase;
   }
 }
-@media (max-width: 991px) {
-  /* line 8, ../scss/_media.scss */
-  .navbar-nav > li {
-    margin: 1.25em 0;
-    font-family: "Source Sans Pro",Tahoma,Arial,sans-serif;
-    font-weight: 400;
-    line-height: 1.25em;
-    letter-spacing: 4px;
-    font-size: 13px;
-    line-height: 1.5em;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: 3px;
-    font-weight: 300;
-    font-style: normal;
+@media (max-width: 768px) {
+  /* line 11, ../scss/_media.scss */
+  .navbar-inverse {
+    background-color: #222222;
+    border-color: #090909;
   }
 }
