@@ -8620,6 +8620,34 @@ button.close {
     display: none !important;
   }
 }
+/* line 1, ../scss/components/_nav.scss */
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+/* line 7, ../scss/components/_nav.scss */
+.navbar .navbar-collapse {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* line 12, ../scss/components/_nav.scss */
+.navbar-nav > li {
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 3px;
+  line-height: 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* line 21, ../scss/components/_nav.scss */
+.navbar-inverse .navbar-brand {
+  display: none;
+}
+
 /*!
  * Start Bootstrap - Full HTML Template (http://startbootstrap.com)
  * Code licensed under the Apache License v2.0.
@@ -8627,13 +8655,37 @@ button.close {
  */
 /* line 7, ../scss/pages/_base.scss */
 body {
-  margin-top: 50px;
-  /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
 }
 
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
 /* line 13, ../scss/pages/_base.scss */
-.full {
+.homeslider {
+  background-color: #CCC;
+  border: 0px !important;
+  height: 100%;
+  margin: 0;
+  max-height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+/* line 23, ../scss/pages/_base.scss */
+.slides {
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  max-height: 100%;
+  padding: 0;
+}
+
+/* line 31, ../scss/pages/_base.scss */
+.full-cover {
+  background-attachment: fixed;
+  height: 100% !important;
+  position: absolute !important;
+  width: 100% !important;
+  z-index: 2 !important;
   background: no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -8641,40 +8693,80 @@ body {
   -o-background-size: cover;
 }
 
-/* line 21, ../scss/pages/_base.scss */
-.cover {
+/* line 44, ../scss/pages/_base.scss */
+.slide1 {
   background-image: url("../img/backgrounds/cover.jpg");
 }
 
-/* line 25, ../scss/pages/_base.scss */
-.navbar .navbar-nav {
-  display: inline-block;
-  float: none;
-  vertical-align: top;
+/* line 48, ../scss/pages/_base.scss */
+.slide2 {
+  background-image: url("../img/backgrounds/cover2.jpg");
 }
 
-/* line 31, ../scss/pages/_base.scss */
-.navbar .navbar-collapse {
+/* line 54, ../scss/pages/_base.scss */
+.band-title {
+  font-weight: 600;
+  font-size: 3em;
+}
+
+/* line 59, ../scss/pages/_base.scss */
+.content {
+  display: table;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 999;
+}
+
+/* line 67, ../scss/pages/_base.scss */
+.content-cell {
+  display: table-cell;
   text-align: center;
+  vertical-align: middle;
 }
 
-/* line 35, ../scss/pages/_base.scss */
-.navbar-nav > li {
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  line-height: 1.25em;
-  letter-spacing: 4px;
-  font-size: 13px;
-  line-height: 1.5em;
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: 3px;
-  font-weight: 300;
+/* line 77, ../scss/pages/_base.scss */
+.audio-player .icon-wrapper {
+  width: 48px;
+  height: 48px;
+  margin: 0 7px 0 0;
+  border-radius: 100%;
+  border: 2px solid white;
+  cursor: pointer;
+  color: #000;
+}
+/* line 87, ../scss/pages/_base.scss */
+.audio-player .track-progress-bar {
+  position: relative;
+  cursor: pointer;
+  height: 2px;
+  padding-bottom: 10px;
+}
+/* line 94, ../scss/pages/_base.scss */
+.audio-player .track {
+  margin-bottom: 20px;
+}
+/* line 98, ../scss/pages/_base.scss */
+.audio-player .track-title a {
+  color: #fff;
   font-style: normal;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: none;
+}
+/* line 106, ../scss/pages/_base.scss */
+.audio-player .track-time {
+  color: #fff;
+  float: right;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-align: right;
+  text-transform: none;
 }
 
-/* line 49, ../scss/pages/_base.scss */
-.navbar-inverse .navbar-brand {
+/* line 117, ../scss/pages/_base.scss */
+.flex-direction-nav, .flex-control-nav {
   display: none;
 }
 

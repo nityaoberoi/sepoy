@@ -5,47 +5,115 @@
  */
 
 body {
-    margin-top: 50px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    font-family: $font-family-sans-serif;
 }
 
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
 
-.full {
-    background: no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+.homeslider {
+  background-color: #CCC;
+  border: 0px !important;
+  height: 100%;
+  margin: 0;
+  max-height: 100%;
+  position: absolute;
+  width: 100%;
 }
 
-.cover {
+.slides {
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  max-height: 100%;
+  padding: 0;
+}
+
+.full-cover {
+  background-attachment: fixed;
+  height: 100% !important;
+  position: absolute !important;
+  width: 100% !important;
+  z-index: 2 !important;
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.slide1 {
   background-image: url('../img/backgrounds/cover.jpg');
 }
 
-.navbar .navbar-nav {
-  display: inline-block;
-  float: none;
-  vertical-align: top;
+.slide2 {
+  background-image: url('../img/backgrounds/cover2.jpg');
 }
 
-.navbar .navbar-collapse {
+
+
+.band-title {
+  font-weight: 600;
+  font-size: 3em;
+}
+
+.content {
+  display: table;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 999;
+}
+
+.content-cell {
+  display: table-cell;
   text-align: center;
+  vertical-align: middle;
 }
 
-.navbar-nav > li {
-  font-family: $font-family-sans-serif;
-  font-weight: 400;
-  line-height: 1.25em;
-  letter-spacing: 4px;
-  font-size: 13px;
-  line-height: 1.5em;
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: 3px;
-  font-weight: 300;
-  font-style: normal;
+// Player
+
+.audio-player {
+
+  .icon-wrapper {
+    width: 48px;
+    height: 48px;
+    margin: 0 7px 0 0;
+    border-radius: 100%;
+    border: 2px solid white;
+    cursor: pointer;
+    color: #000;
+  }
+
+  .track-progress-bar {
+    position: relative;
+    cursor: pointer;
+    height: 2px;
+    padding-bottom: 10px;
+  }
+
+  .track {
+    margin-bottom: 20px;
+  }
+
+  .track-title a {
+    color: #fff;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: none;
+  }
+
+  .track-time {
+    color: #fff;
+    float: right;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 1px;
+    text-align: right;
+    text-transform: none;
+  }
 }
 
-.navbar-inverse .navbar-brand {
+.flex-direction-nav, .flex-control-nav {
   display: none;
 }

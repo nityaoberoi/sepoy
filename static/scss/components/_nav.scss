@@ -1,0 +1,23 @@
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.navbar-nav > li {
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 3px;
+  line-height: 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.navbar-inverse .navbar-brand {
+  display: none;
+}
