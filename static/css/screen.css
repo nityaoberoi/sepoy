@@ -8775,6 +8775,29 @@ body {
   background-image: url("../img/backgrounds/blackbrick.jpg");
 }
 
+/* line 123, ../scss/pages/_base.scss */
+.bio-content {
+  overflow: hidden;
+  position: relative;
+  line-height: 0;
+  width: 80%;
+  margin: 8em auto 0;
+}
+
+/* line 134, ../scss/pages/_base.scss */
+.bio-text {
+  margin: 2em 1em 0;
+}
+
+/* line 138, ../scss/pages/_base.scss */
+.bio-text p {
+  font-family: proxima-nova;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.68em;
+  color: #fff;
+}
+
 @media (max-width: 767px) {
   /* line 2, ../scss/_media.scss */
   .navbar-inverse .navbar-brand {
