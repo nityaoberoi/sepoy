@@ -8661,7 +8661,13 @@ body {
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
 /* line 13, ../scss/pages/_base.scss */
 .homeslider {
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
   background-color: #CCC;
+  background-image: url("../img/backgrounds/cover.jpg");
   border: 0px !important;
   height: 100%;
   margin: 0;
@@ -8670,7 +8676,7 @@ body {
   width: 100%;
 }
 
-/* line 23, ../scss/pages/_base.scss */
+/* line 29, ../scss/pages/_base.scss */
 .slides {
   height: 100%;
   list-style: none;
@@ -8679,7 +8685,7 @@ body {
   padding: 0;
 }
 
-/* line 31, ../scss/pages/_base.scss */
+/* line 37, ../scss/pages/_base.scss */
 .full-cover {
   background-attachment: fixed;
   height: 100% !important;
@@ -8693,23 +8699,23 @@ body {
   -o-background-size: cover;
 }
 
-/* line 44, ../scss/pages/_base.scss */
+/* line 50, ../scss/pages/_base.scss */
 .slide1 {
   background-image: url("../img/backgrounds/cover.jpg");
 }
 
-/* line 48, ../scss/pages/_base.scss */
+/* line 54, ../scss/pages/_base.scss */
 .slide2 {
   background-image: url("../img/backgrounds/cover2.jpg");
 }
 
-/* line 52, ../scss/pages/_base.scss */
+/* line 58, ../scss/pages/_base.scss */
 .band-title {
   font-weight: 600;
   font-size: 3em;
 }
 
-/* line 57, ../scss/pages/_base.scss */
+/* line 63, ../scss/pages/_base.scss */
 .content {
   display: table;
   height: 100%;
@@ -8717,29 +8723,40 @@ body {
   width: 100%;
   z-index: 999;
 }
+/* line 70, ../scss/pages/_base.scss */
+.content.splash-content {
+  padding-top: 200px;
+}
 
-/* line 69, ../scss/pages/_base.scss */
+/* line 76, ../scss/pages/_base.scss */
+.header-main h1 {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* line 86, ../scss/pages/_base.scss */
 .audio-player .icon-wrapper {
-  width: 48px;
-  height: 48px;
-  margin: 0 7px 0 0;
   border-radius: 100%;
   border: 2px solid white;
   cursor: pointer;
   color: #000;
+  height: 48px;
+  margin: 0 7px 0 0;
+  width: 48px;
+  padding: 6px;
 }
-/* line 79, ../scss/pages/_base.scss */
+/* line 97, ../scss/pages/_base.scss */
 .audio-player .track-progress-bar {
-  position: relative;
   cursor: pointer;
   height: 2px;
   padding-bottom: 10px;
+  position: relative;
 }
-/* line 86, ../scss/pages/_base.scss */
+/* line 104, ../scss/pages/_base.scss */
 .audio-player .track {
   margin-bottom: 20px;
 }
-/* line 90, ../scss/pages/_base.scss */
+/* line 108, ../scss/pages/_base.scss */
 .audio-player .track-title a {
   color: #fff;
   font-style: normal;
@@ -8747,7 +8764,7 @@ body {
   letter-spacing: 1px;
   text-transform: none;
 }
-/* line 98, ../scss/pages/_base.scss */
+/* line 116, ../scss/pages/_base.scss */
 .audio-player .track-time {
   color: #fff;
   float: right;
@@ -8758,7 +8775,7 @@ body {
   text-transform: none;
 }
 
-/* line 109, ../scss/pages/_base.scss */
+/* line 127, ../scss/pages/_base.scss */
 .flex-direction-nav, .flex-control-nav {
   display: none;
 }
