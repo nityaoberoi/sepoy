@@ -1,6 +1,6 @@
 $(function() {
   // Setup the player to autoplay the next track
-  var as = audiojs.createAll({
+  var audioPlayer = audiojs.createAll({
     trackEnded: function() {
       var next = $('.track.playing').next();
       if (!next.length) next = $('.track').first();
@@ -11,8 +11,18 @@ $(function() {
   });
 
   // Load in the first track
-  var audio = as[0];
-      first = $('.track .link').attr('data-src');
+  var loadFirstTrack = function() {
+    var audio = audioPlayer[0],
+        firstTrack = $('.track').first(),
+        soundTrack = soundTrack.attr('data-track');
+
+    firstTrack.addClass('playing');
+
+
+  }
+
+
+      debugger;
   $('.track').first().addClass('playing');
   audio.load(first);
 
