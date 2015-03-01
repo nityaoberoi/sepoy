@@ -92,11 +92,13 @@ a {
     border-radius: 100%;
     border: 2px solid white;
     cursor: pointer;
-    color: #000;
-    height: 48px;
+    color: #fff;
     margin: 0 7px 0 0;
-    width: 48px;
-    padding: 6px;
+    padding: 14px 12px;
+
+    .fa {
+      margin-left: 8px
+    }
   }
 
   .track-progress-bar {
@@ -111,6 +113,18 @@ a {
       left: 0;
       width: 0%;
       height: 2px;
+
+      &.play-bar {
+        position: relative;
+      }
+
+      &.bg {
+        width: 100%;
+      }
+
+      &.play-bar, &.bg {
+        background-color: #fff;
+      }
     }
   }
 

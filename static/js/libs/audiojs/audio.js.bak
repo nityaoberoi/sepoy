@@ -57,34 +57,25 @@
       // The default markup and classes for creating the player:
       createPlayer: {
         markup: '\
-          <a class="button button-previous icon-wrapper"> \
-            <span class="fa fa-backward"></span> \
-          </a> \
-          <a class="button button-play-pause icon-wrapper"> \
-            <span class="fa fa-play"></span> \
-          </a> \
-          <a class="button button-next icon-wrapper"> \
-            <span class="fa fa-forward"></span> \
-          </a> \
+          <div class="play-pause"> \
+            <p class="play"></p> \
+            <p class="pause"></p> \
+            <p class="loading"></p> \
+            <p class="error"></p> \
+          </div> \
+          <div class="scrubber"> \
+            <div class="progress"></div> \
+            <div class="loaded"></div> \
+          </div> \
+          <div class="time"> \
+            <em class="played">00:00</em>/<strong class="duration">00:00</strong> \
+          </div> \
           <div class="error-message"></div>',
-        trackMarkup: '
-          <div class="track-progress-bar">
-          <div class="bg bar"></div>
-          <div class="load-bar bar"></div>
-          <div class="play-bar bar"></div>
-        </div>
-
-        <div class="track-info">
-          <div class="track-time">4:48</div>
-          <div class="track-title"><a class="link" data-src="http://static1.squarespace.com/static/54ae6b4be4b0faae8686b3f2/54d689b2e4b02a87a2173798/54d689bae4b02a87a21737d3/1423346106819/Back+To+You.mp3">Back To You</a></div>
-        </div>
-        </div>
-        '
-        playPauseClass: 'button-play-pause',
+        playPauseClass: 'play-pause',
         scrubberClass: 'scrubber',
         progressClass: 'progress',
         loaderClass: 'loaded',
-        timeClass: 'track-time',
+        timeClass: 'time',
         durationClass: 'duration',
         playedClass: 'played',
         errorMessageClass: 'error-message',
@@ -95,6 +86,11 @@
       // The css used by the default player. This is is dynamically injected into a `<style>` tag in the top of the head.
       css: '\
         .audiojs audio { position: absolute; left: -1px; } \
+        .audiojs { width: 460px; height: 36px; background: #404040; overflow: hidden; font-family: monospace; font-size: 12px; \
+          background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #444), color-stop(0.5, #555), color-stop(0.51, #444), color-stop(1, #444)); \
+          background-image: -moz-linear-gradient(center top, #444 0%, #555 50%, #444 51%, #444 100%); \
+          -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); -moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); \
+          -o-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); } \
         .audiojs .play-pause { width: 25px; height: 40px; padding: 4px 6px; margin: 0px; float: left; overflow: hidden; border-right: 1px solid #000; } \
         .audiojs p { display: none; width: 25px; height: 40px; margin: 0px; cursor: pointer; } \
         .audiojs .play { display: block; } \
@@ -260,7 +256,6 @@
     // ### Helper methods for constructing a working player
     // Inject a wrapping div and the markup for the html player.
     createPlayer: function(element, player, id) {
-      debugger;
       var wrapper = document.createElement('div'),
           newElement = element.cloneNode(true);
       wrapper.setAttribute('class', 'audiojs');
@@ -284,7 +279,6 @@
 
     // Attaches useful event callbacks to an `audiojs` instance.
     attachEvents: function(wrapper, audio) {
-      debugger;
       if (!audio.settings.createPlayer) return;
       var player = audio.settings.createPlayer,
           playPause = getByClass(player.playPauseClass, wrapper),

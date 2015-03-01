@@ -8743,20 +8743,22 @@ a:hover {
   border-radius: 100%;
   border: 2px solid white;
   cursor: pointer;
-  color: #000;
-  height: 48px;
+  color: #fff;
   margin: 0 7px 0 0;
-  width: 48px;
-  padding: 6px;
+  padding: 14px 12px;
 }
-/* line 102, ../scss/pages/_base.scss */
+/* line 99, ../scss/pages/_base.scss */
+.audio-player .icon-wrapper .fa {
+  margin-left: 8px;
+}
+/* line 104, ../scss/pages/_base.scss */
 .audio-player .track-progress-bar {
   cursor: pointer;
   height: 2px;
   padding-bottom: 10px;
   position: relative;
 }
-/* line 108, ../scss/pages/_base.scss */
+/* line 110, ../scss/pages/_base.scss */
 .audio-player .track-progress-bar .bar {
   position: absolute;
   top: 0;
@@ -8765,10 +8767,22 @@ a:hover {
   height: 2px;
 }
 /* line 117, ../scss/pages/_base.scss */
+.audio-player .track-progress-bar .bar.play-bar {
+  position: relative;
+}
+/* line 121, ../scss/pages/_base.scss */
+.audio-player .track-progress-bar .bar.bg {
+  width: 100%;
+}
+/* line 125, ../scss/pages/_base.scss */
+.audio-player .track-progress-bar .bar.play-bar, .audio-player .track-progress-bar .bar.bg {
+  background-color: #fff;
+}
+/* line 131, ../scss/pages/_base.scss */
 .audio-player .track {
   margin-bottom: 20px;
 }
-/* line 121, ../scss/pages/_base.scss */
+/* line 135, ../scss/pages/_base.scss */
 .audio-player .track-title a {
   color: #fff;
   font-style: normal;
@@ -8776,7 +8790,7 @@ a:hover {
   letter-spacing: 1px;
   text-transform: none;
 }
-/* line 129, ../scss/pages/_base.scss */
+/* line 143, ../scss/pages/_base.scss */
 .audio-player .track-time {
   color: #fff;
   float: right;
@@ -8787,7 +8801,7 @@ a:hover {
   text-transform: none;
 }
 
-/* line 140, ../scss/pages/_base.scss */
+/* line 154, ../scss/pages/_base.scss */
 .flex-direction-nav, .flex-control-nav {
   display: none;
 }
