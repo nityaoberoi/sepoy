@@ -8,6 +8,12 @@ body {
     font-family: $font-family-sans-serif;
 }
 
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
 
 .homeslider {
@@ -61,14 +67,13 @@ body {
 }
 
 .content {
-  display: table;
   height: 100%;
   position: relative;
   width: 100%;
   z-index: 999;
 
   &.splash-content {
-    padding-top: 200px;
+    padding-top: 14em;
   }
 }
 
@@ -99,6 +104,14 @@ body {
     height: 2px;
     padding-bottom: 10px;
     position: relative;
+
+    .bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+    }
   }
 
   .track {
