@@ -1,0 +1,20 @@
+// Styles for the Gallery page
+
+.gallery-content {
+   overflow: hidden;
+   position: relative;
+   width: 80%;
+   margin: 8em auto 0;
+}
+
+.gallerybg {
+  background-image: url('../img/backgrounds/SepoyNYC.jpg');
+}
+
+.gallery {
+  margin: 30px auto;
+}
+
+.thumb {
+	width: 300px;
+}

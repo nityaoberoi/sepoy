@@ -1,1 +1,27 @@
 {% extends "base.html" %}
+{% block extra_css %}
+  <link href="/static/css/lightGallery.css" media="screen" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block body_classes %}
+full-cover gallerybg
+{% endblock %}
+{% block body %}
+<section class="gallery">
+  <div class="gallery-content container-fluid">
+    <div class="row">
+      <ul id="lightGallery">
+        <li class="col-xs-12 col-sm-6 col-md-4" data-src="/static/img/gallery/images/ameylighter.jpg"><img src="/static/img/gallery/images/ameylighter.jpg" class="thumb"></li>
+        <li class="col-xs-12 col-sm-6 col-md-4" data-src="/static/img/gallery/images/sepoytrashbar.jpg"><img src="/static/img/gallery/images/sepoytrashbar.jpg" class="thumb"></li>
+        <li class="col-xs-12 col-sm-6 col-md-4" data-src="/static/img/gallery/images/sepoyrivington.jpg"><img src="/static/img/gallery/images/sepoyrivington.jpg" class="thumb"></li>
+        <li class="col-xs-12 col-sm-6 col-md-4" data-src="/static/img/gallery/images/anupamkeys.jpg"><img src="/static/img/gallery/images/anupamkeys.jpg" class="thumb"></li>
+        <li class="col-xs-12 col-sm-6 col-md-4" data-src="/static/img/gallery/images/sepoyempirestate.jpg"><img src="/static/img/gallery/images/sepoyempirestate.jpg" class="thumb"></li>
+        <li class="col-xs-12 col-sm-6 col-md-4" data-src="/static/img/gallery/images/rata.jpg"><img src="/static/img/gallery/images/rata.jpg" class="thumb"></li>
+      </ul>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block extra_js %}
+<script src="/static/js/libs/lightGallery.js"></script>
+<script src="/static/js/sepoy-gallery.js"></script>
+{% endblock %}
