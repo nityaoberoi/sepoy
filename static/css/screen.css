@@ -8770,23 +8770,17 @@ body {
 
 /* line 7, ../scss/pages/_bio.scss */
 .bio-content {
-  overflow: hidden;
-  position: relative;
-  line-height: 0;
   width: 80%;
-  margin: 8em auto 0;
+  margin-top: 8em;
 }
 
-/* line 15, ../scss/pages/_bio.scss */
+/* line 12, ../scss/pages/_bio.scss */
 .bio-text {
-  margin: 2em 1em 0;
+  margin-top: 2em;
+  text-align: center;
 }
-/* line 18, ../scss/pages/_bio.scss */
+/* line 15, ../scss/pages/_bio.scss */
 .bio-text p {
-  font-family: proxima-nova;
-  font-style: normal;
-  font-size: 14px;
-  line-height: 1.68em;
   color: #fff;
 }
 
@@ -8822,7 +8816,7 @@ body {
     text-transform: uppercase;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   /* line 11, ../scss/_media.scss */
   .navbar-inverse {
     background-color: #222222;
