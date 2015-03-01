@@ -62,12 +62,6 @@ body {
   z-index: 999;
 }
 
-.content-cell {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-}
-
 // Player
 
 .audio-player {
@@ -116,29 +110,4 @@ body {
   display: none;
 }
 
-.biobg {
-  background-image: url('../img/backgrounds/blackbrick.jpg');
-}
 
-.bio-content {
-  overflow: hidden;
-  position: relative;
-  line-height: 0;
-  width: 80%;
-  margin: 8em auto 0;
-}
-
-.bio-image-wrapper {
-}
-
-.bio-text {
-  margin: 2em 1em 0;
-}
-
-.bio-text p {
-  font-family: proxima-nova;
-  font-style: normal;
-  font-size: 14px;
-  line-height: 1.68em;
-  color: #fff;
-}
