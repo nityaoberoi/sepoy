@@ -1,1 +1,38 @@
 {% extends "base.html" %}
+{% block body_classes %}
+full-cover contactbg
+{% endblock %}
+{% block body %}
+<section class="contact">
+  <div class="container-fluid center-block contact-content text-center">
+    <hr>
+    <b>CONTACT</b>
+    <p>booking@sepoy.com</p>
+
+    <hr>
+    <b>SUBSCRIBE</b>
+    <p>Sign up to receive updates about our releases and shows</p>
+    <!--
+        <script type="text/javascript">
+          // Using jQuery.
+          $(function() {
+          $('form').each(function() {
+            $(this).find('input').keypress(function(e) {
+              // Enter pressed?
+              if (e.which == 10 || e.which == 13) {
+                this.form.submit();
+              }
+            });
+            $(this).find('input[type=submit]').hide();
+          });
+        });
+      </script>
+        -->
+    <form name="email" target="#here" method="post">
+      <input name="email" type="email" />
+      <input type="submit" hidden="true" />
+    </form>
+    <hr>
+  </div>
+</section>
+{% endblock %}
