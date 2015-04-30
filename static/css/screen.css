@@ -8653,18 +8653,23 @@ button.close {
   display: inline-block;
   float: none;
   vertical-align: top;
-  background-color: black;
-  opacity: 0.4;
-  padding: 0 60px;
+}
+@media (min-width: 768px) {
+  /* line 1, ../scss/components/_nav.scss */
+  .navbar .navbar-nav {
+    background-color: black;
+    opacity: 0.4;
+    padding: 0 60px;
+  }
 }
 
-/* line 10, ../scss/components/_nav.scss */
+/* line 13, ../scss/components/_nav.scss */
 .navbar .navbar-collapse {
   margin-top: 40px;
   text-align: center;
 }
 
-/* line 15, ../scss/components/_nav.scss */
+/* line 18, ../scss/components/_nav.scss */
 .navbar-nav > li {
   font-style: normal;
   font-weight: 400;
@@ -8674,11 +8679,27 @@ button.close {
   text-transform: uppercase;
 }
 
-/* line 24, ../scss/components/_nav.scss */
+/* line 27, ../scss/components/_nav.scss */
 .navbar-inverse .navbar-brand {
   display: none;
 }
 
+@media (max-width: 767px) {
+  /* line 32, ../scss/components/_nav.scss */
+  .navbar-inverse .navbar-brand {
+    display: block;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    text-transform: uppercase;
+  }
+}
+@media (max-width: 767px) {
+  /* line 41, ../scss/components/_nav.scss */
+  .navbar-inverse {
+    background-color: #222222;
+    border-color: #090909;
+  }
+}
 /*!
  * Start Bootstrap - Full HTML Template (http://startbootstrap.com)
  * Code licensed under the Apache License v2.0.
@@ -8952,21 +8973,4 @@ a:hover {
   border-style: inset;
   border-width: 1px;
   color: #FFFFFF;
-}
-
-@media (max-width: 767px) {
-  /* line 2, ../scss/_media.scss */
-  .navbar-inverse .navbar-brand {
-    display: block;
-    font-family: "Raleway", "Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
-    font-size: 17px;
-    text-transform: uppercase;
-  }
-}
-@media (max-width: 767px) {
-  /* line 11, ../scss/_media.scss */
-  .navbar-inverse {
-    background-color: #222222;
-    border-color: #090909;
-  }
 }
