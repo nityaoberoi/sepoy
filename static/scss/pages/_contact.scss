@@ -7,16 +7,17 @@
 .contact-content {
   width: 80%;
   margin-top: 8em;
-    b { 
-      color: #FFFFFF;
-      font-size: 125%;
-    }
+  font-family: raleway;
+  b {
+    color: #FFFFFF;
+    font-size: 125%;
+  }
 
-    p {
-        margin-top: 2em;
-        font-size: 80%;
-        color: rgba(255, 255, 255, .3);        
-    }
+  p {
+    margin-top: 2em;
+    font-size: 80%;
+    color: rgba(255, 255, 255, .3);
+  }
 }
 
 .contact hr {
