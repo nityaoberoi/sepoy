@@ -8834,14 +8834,15 @@ a:hover {
 .bio-content {
   width: 80%;
   margin-top: 8em;
+  font-family: raleway;
 }
 
-/* line 12, ../scss/pages/_bio.scss */
+/* line 13, ../scss/pages/_bio.scss */
 .bio-text {
   margin-top: 2em;
   text-align: center;
 }
-/* line 15, ../scss/pages/_bio.scss */
+/* line 16, ../scss/pages/_bio.scss */
 .bio-text p {
   color: #fff;
 }
@@ -8878,20 +8879,21 @@ a:hover {
 .contact-content {
   width: 80%;
   margin-top: 8em;
+  font-family: raleway;
 }
-/* line 10, ../scss/pages/_contact.scss */
+/* line 11, ../scss/pages/_contact.scss */
 .contact-content b {
   color: #FFFFFF;
   font-size: 125%;
 }
-/* line 15, ../scss/pages/_contact.scss */
+/* line 16, ../scss/pages/_contact.scss */
 .contact-content p {
   margin-top: 2em;
   font-size: 80%;
   color: rgba(255, 255, 255, 0.3);
 }
 
-/* line 22, ../scss/pages/_contact.scss */
+/* line 23, ../scss/pages/_contact.scss */
 .contact hr {
   display: block;
   margin-top: 1em;
