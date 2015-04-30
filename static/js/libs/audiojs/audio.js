@@ -138,12 +138,13 @@
         container[audiojs].helpers.addClass(this.wrapper, player.loadingClass);
       },
       loadStarted: function() {
+        if (this.playing) return; // don't mess with duration once playing has started.
         var player = this.settings.createPlayer,
             duration = getByClass(player.durationClass, this.currentTrack),
             m = Math.floor(this.duration / 60),
             s = Math.floor(this.duration % 60);
         container[audiojs].helpers.removeClass(this.wrapper, player.loadingClass);
-        duration.innerHTML = (m+':'+(s<10?'0':'')+s);
+        //duration.innerHTML = (m+':'+(s<10?'0':'')+s);
       },
       loadProgress: function(percent) {
         var player = this.settings.createPlayer,
@@ -620,7 +621,7 @@
       if (!this.element.duration) return false;
 
       this.duration = this.element.duration;
-      this.updatePlayhead();
+      //this.updatePlayhead();
       this.settings.loadStarted.apply(this);
     },
     loadProgress: function() {
