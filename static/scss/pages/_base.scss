@@ -121,6 +121,7 @@ a {
 
   .track {
     margin-bottom: 20px;
+    opacity: 0.5;
   }
 
   .track-progress-bar {
@@ -152,8 +153,12 @@ a {
     }
   }
 
-  .currently-playing .bar.bg {
-    opacity: 0.5;
+  .currently-playing {
+    opacity: 1;
+
+    .bar.bg {
+      opacity: 0.5;
+    }
   }
 
   .track-info {
