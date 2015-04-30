@@ -14,9 +14,11 @@ $(document).ready(function() {
 
       var song = new Audio($trackElement.data('track'));
       song.onloadeddata = function() {
-        var trackDuration = $trackElement.find('.track-duration');
+        var trackDuration = $trackElement.find('.track-duration'),
+            duration = readableDuration(this.duration);
+        $trackElement.attr('data-duration', duration)
         trackDuration.removeClass('is-loading');
-        trackDuration.html(readableDuration(this.duration));
+        trackDuration.html(duration);
       }
 
       $progressBarWrapper.append($bgBar);
@@ -54,10 +56,13 @@ $(document).ready(function() {
   }
 
   var audioPlayer = audiojs.create($('.audio-player').get(0), {
-    trackEnded: function() {
-      var next = $('.track.currently-playing').next();
-      if (!next.length) next = $('.track').first();
-      next.find('.track-info').click();
+    trackEnded: playNextTrack,
+    resetTracks: function() {
+      var prevTrack = $('.track.previous-playing');
+      prevTrack.find('.load-bar').css({ width: '0%'});
+      prevTrack.find('.play-bar').css({ width: '0%'});
+      prevTrack.find('.track-duration').html(prevTrack.data('duration'));
+      prevTrack.removeClass('.previous-playing');
     }
   });
 
@@ -67,17 +72,18 @@ $(document).ready(function() {
   audioPlayer.load(firstTrack);
 
   // // Load in a track on click
-  $('.track-info').click(function(e) {
+  $(document).on('click', '.track-info', function(e) {
     e.preventDefault();
     var parentTrack = $(this).parents('.track');
-    parentTrack.addClass('currently-playing').siblings().removeClass('currently-playing');
+    parentTrack.siblings('.currently-playing')
+               .removeClass('currently-playing')
+               .addClass('previous-playing');
     audioPlayer.load(parentTrack);
     audioPlayer.play();
   });
 
   $(document).on('click', '.button-next', playNextTrack);
   $(document).on('click', '.button-previous', playPreviousTrack);
-
   // // Keyboard shortcuts
   $(document).keydown(function(e) {
     var unicode = e.charCode ? e.charCode : e.keyCode;

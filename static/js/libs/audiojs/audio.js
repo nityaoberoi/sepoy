@@ -116,6 +116,7 @@
         .error .play-pause p { cursor: auto; } \
         .error .error-message { display: block; }',
       // The default event callbacks:
+      resetTracks: function(e) {},
       trackEnded: function(e) {},
       flashError: function() {
         var player = this.settings.createPlayer,
@@ -305,6 +306,10 @@
 
       container[audiojs].events.addListener(audio.element, 'ended', function(e) {
         audio.trackEnded.apply(audio);
+      });
+
+      container[audiojs].events.addListener(audio.element, 'emptied', function(e) {
+        audio.resetTracks.apply(audio);
       });
 
       container[audiojs].events.addListener(audio.source, 'error', function(e) {
@@ -675,6 +680,9 @@
       this.skipTo.apply(this, [0]);
       if (!this.settings.loop) this.pause.apply(this);
       this.settings.trackEnded.apply(this);
+    },
+    resetTracks: function(e) {
+      this.settings.resetTracks.apply(this);
     }
   }
 
