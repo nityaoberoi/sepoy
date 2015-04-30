@@ -602,7 +602,10 @@
       this.element.currentTime = this.duration * percent;
       this.updatePlayhead();
     },
-    load: function(mp3) {
+    load: function(trackElement) {
+      this.setCurrentTrack(trackElement);
+      mp3 = trackElement.data('track');
+
       this.loadStartedCalled = false;
       this.source.setAttribute('src', mp3);
       // The now outdated `load()` method is required for Safari 4

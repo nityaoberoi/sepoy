@@ -41,44 +41,52 @@ $(document).ready(function() {
     return min + ':' + sec;
   }
 
+  function playNextTrack() {
+    var next = $('.track.currently-playing').next();
+    if (!next.length) next = $('.track').first();
+    next.find('.track-info').click();
+  }
+
+  function playPreviousTrack() {
+    var prev = $('.track.currently-playing').prev();
+    if (!prev.length) prev = $('.track').last();
+    prev.find('.track-info').click();
+  }
+
   var audioPlayer = audiojs.create($('.audio-player').get(0), {
     trackEnded: function() {
-      var next = $('.track.playing').next();
+      var next = $('.track.currently-playing').next();
       if (!next.length) next = $('.track').first();
-      next.find('track-info').click();
+      next.find('.track-info').click();
     }
   });
 
   // Load the first track and play
   var audio = audioPlayer.element,
       firstTrack = $('.track').first();
-
-  audioPlayer.setCurrentTrack(firstTrack);
-  audioPlayer.load(firstTrack.data('track'));
+  audioPlayer.load(firstTrack);
 
   // // Load in a track on click
   $('.track-info').click(function(e) {
     e.preventDefault();
     var parentTrack = $(this).parents('.track');
-    parentTrack.addClass('playing').siblings().removeClass('playing');
-    audioPlayer.setCurrentTrack(parentTrack);
-    audioPlayer.load(parentTrack.data('track'));
+    parentTrack.addClass('currently-playing').siblings().removeClass('currently-playing');
+    audioPlayer.load(parentTrack);
     audioPlayer.play();
   });
+
+  $(document).on('click', '.button-next', playNextTrack);
+  $(document).on('click', '.button-previous', playPreviousTrack);
 
   // // Keyboard shortcuts
   $(document).keydown(function(e) {
     var unicode = e.charCode ? e.charCode : e.keyCode;
        // right arrow
     if (unicode == 39) {
-      var next = $('.track.playing').next();
-      if (!next.length) next = $('.track').first();
-      next.find('.track-info').click();
+      playNextTrack();
       // back arrow
     } else if (unicode == 37) {
-      var prev = $('.track.playing').prev();
-      if (!prev.length) prev = $('.track').last();
-      prev.click();
+      playPreviousTrack();
       // spacebar
     } else if (unicode == 32) {
       audioPlayer.playPause();
