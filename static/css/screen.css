@@ -8915,8 +8915,8 @@ a:hover {
 }
 
 /* line 31, ../scss/pages/_gallery.scss */
-.thumb {
-  width: 300px;
+.gallery-image {
+  margin-bottom: 20px;
 }
 
 /* line 3, ../scss/pages/_contact.scss */
