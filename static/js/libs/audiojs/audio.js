@@ -61,32 +61,20 @@
             <span class="fa fa-backward"></span> \
           </a> \
           <a class="button button-play-pause icon-wrapper"> \
-            <span class="fa fa-play"></span> \
+            <span class="fa"></span> \
           </a> \
           <a class="button button-next icon-wrapper"> \
             <span class="fa fa-forward"></span> \
           </a> \
           <div class="error-message"></div>',
-        trackMarkup: '
-          <div class="track-progress-bar">
-          <div class="bg bar"></div>
-          <div class="load-bar bar"></div>
-          <div class="play-bar bar"></div>
-        </div>
-
-        <div class="track-info">
-          <div class="track-time">4:48</div>
-          <div class="track-title"><a class="link" data-src="http://static1.squarespace.com/static/54ae6b4be4b0faae8686b3f2/54d689b2e4b02a87a2173798/54d689bae4b02a87a21737d3/1423346106819/Back+To+You.mp3">Back To You</a></div>
-        </div>
-        </div>
-        '
+        trackClass: 'track',
+        currentlyPlayingClass: 'currently-playing',
         playPauseClass: 'button-play-pause',
-        scrubberClass: 'scrubber',
-        progressClass: 'progress',
-        loaderClass: 'loaded',
-        timeClass: 'track-time',
-        durationClass: 'duration',
-        playedClass: 'played',
+        scrubberClass: 'track-progress-bar',
+        progressClass: 'play-bar',  // tracks how much of the track has played
+        loaderClass: 'load-bar',    // tracks how much of the track has loaded
+        durationClass: 'track-duration',  // tracks the udration of the song
+        playedClass: 'track-time',  // records how much of the song was played
         errorMessageClass: 'error-message',
         playingClass: 'playing',
         loadingClass: 'loading',
@@ -151,15 +139,15 @@
       },
       loadStarted: function() {
         var player = this.settings.createPlayer,
-            duration = getByClass(player.durationClass, this.wrapper),
+            duration = getByClass(player.durationClass, this.currentTrack),
             m = Math.floor(this.duration / 60),
             s = Math.floor(this.duration % 60);
         container[audiojs].helpers.removeClass(this.wrapper, player.loadingClass);
-        duration.innerHTML = ((m<10?'0':'')+m+':'+(s<10?'0':'')+s);
+        duration.innerHTML = (m+':'+(s<10?'0':'')+s);
       },
       loadProgress: function(percent) {
         var player = this.settings.createPlayer,
-            loaded = getByClass(player.loaderClass, this.wrapper);
+            loaded = getByClass(player.loaderClass, this.currentTrack);
         loaded.style.width = (100 * percent) + '%';
       },
       playPause: function() {
@@ -176,14 +164,14 @@
       },
       updatePlayhead: function(percent) {
         var player = this.settings.createPlayer,
-            progress = getByClass(player.progressClass, this.wrapper);
+            progress = getByClass(player.progressClass, this.currentTrack);
         progress.style.width = (100 * percent) + '%';
 
-        var played = getByClass(player.playedClass, this.wrapper),
+        var played = getByClass(player.durationClass, this.currentTrack),
             p = this.duration * percent,
             m = Math.floor(p / 60),
             s = Math.floor(p % 60);
-        played.innerHTML = ((m<10?'0':'')+m+':'+(s<10?'0':'')+s);
+        played.innerHTML = (m+':'+(s<10?'0':'')+s);
       }
     },
 
@@ -217,26 +205,26 @@
 
     // ### Creating and returning a new instance
     // This goes through all the steps required to build out a usable `audiojs` instance.
-    newInstance: function(element, options) {
-      var element = element,
+    newInstance: function(playerWrapper, options) {
+      var audioElement = getByClass('audio-element', playerWrapper),
           s = this.helpers.clone(this.settings),
           id = 'audiojs'+this.instanceCount,
           wrapperId = 'audiojs_wrapper'+this.instanceCount,
           instanceCount = this.instanceCount++;
 
       // Check for `autoplay`, `loop` and `preload` attributes and write them into the settings.
-      if (element.getAttribute('autoplay') != null) s.autoplay = true;
-      if (element.getAttribute('loop') != null) s.loop = true;
-      if (element.getAttribute('preload') == 'none') s.preload = false;
+      if (audioElement.getAttribute('autoplay') != null) s.autoplay = true;
+      if (audioElement.getAttribute('loop') != null) s.loop = true;
+      if (audioElement.getAttribute('preload') == 'none') s.preload = false;
       // Merge the default settings with the user-defined `options`.
       if (options) this.helpers.merge(s, options);
 
       // Inject the player html if required.
-      if (s.createPlayer.markup) element = this.createPlayer(element, s.createPlayer, wrapperId);
-      else element.parentNode.setAttribute('id', wrapperId);
+      if (s.createPlayer.markup) audioElement = this.createPlayer(audioElement, s.createPlayer, wrapperId);
+      else audioElement.parentNode.setAttribute('id', wrapperId);
 
       // Return a new `audiojs` instance.
-      var audio = new container[audiojsInstance](element, s);
+      var audio = new container[audiojsInstance](audioElement, s);
 
       // If css has been passed in, dynamically inject it into the `<head>`.
       if (s.css) this.helpers.injectCss(audio, s.css);
@@ -244,13 +232,13 @@
       // If `<audio>` or mp3 playback isn't supported, insert the swf & attach the required events for it.
       if (s.useFlash && s.hasFlash) {
         this.injectFlash(audio, id);
-        this.attachFlashEvents(audio.wrapper, audio);
+        this.attachFlashEvents(playerWrapper, audio);
       } else if (s.useFlash && !s.hasFlash) {
         this.settings.flashError.apply(audio);
       }
 
       // Attach event callbacks to the new audiojs instance.
-      if (!s.useFlash || (s.useFlash && s.hasFlash)) this.attachEvents(audio.wrapper, audio);
+      if (!s.useFlash || (s.useFlash && s.hasFlash)) this.attachEvents(playerWrapper, audio);
 
       // Store the newly-created `audiojs` instance.
       this.instances[id] = audio;
@@ -260,7 +248,6 @@
     // ### Helper methods for constructing a working player
     // Inject a wrapping div and the markup for the html player.
     createPlayer: function(element, player, id) {
-      debugger;
       var wrapper = document.createElement('div'),
           newElement = element.cloneNode(true);
       wrapper.setAttribute('class', 'audiojs');
@@ -284,7 +271,6 @@
 
     // Attaches useful event callbacks to an `audiojs` instance.
     attachEvents: function(wrapper, audio) {
-      debugger;
       if (!audio.settings.createPlayer) return;
       var player = audio.settings.createPlayer,
           playPause = getByClass(player.playPauseClass, wrapper),
@@ -422,7 +408,7 @@
       },
       removeClass: function(element, className) {
         var re = new RegExp('(\\s|^)'+className+'(\\s|$)');
-        element.className = element.className.replace(re,' ');
+        element.className = element.className.replace(re, '');
       },
       // **Dynamic CSS injection**
       // Takes a string of css, inserts it into a `<style>`, then injects it in at the very top of the `<head>`. This ensures any user-defined styles will take precedence.
@@ -588,13 +574,15 @@
     // Each audio instance returns an object which contains an API back into the `<audio>` element.
     this.element = element;
     this.wrapper = element.parentNode;
+    this.settings = settings;
+
     this.source = element.getElementsByTagName('source')[0] || element;
+
     // First check the `<audio>` element directly for a src and if one is not found, look for a `<source>` element.
     this.mp3 = (function(element) {
-      var source = element.getElementsByTagName('source')[0];
-      return element.getAttribute('src') || (source ? source.getAttribute('src') : null);
-    })(element);
-    this.settings = settings;
+      return element.getAttribute('src') || null;
+    })(this.source);
+
     this.loadStartedCalled = false;
     this.loadedPercent = 0;
     this.duration = 1;
@@ -646,6 +634,11 @@
 
         this.settings.loadProgress.apply(this, [this.loadedPercent]);
       }
+    },
+    setCurrentTrack: function(track) {
+      this.currentTrack = track.get(0);
+      var player = this.settings.createPlayer;
+      container[audiojs].helpers.addClass(this.currentTrack, player.currentlyPlayingClass);
     },
     playPause: function() {
       if (this.playing) this.pause();
