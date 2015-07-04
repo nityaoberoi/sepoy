@@ -187,3 +187,9 @@ a {
 .is-loading {
 
 }
+
+@media only screen and (max-width : $screen-sm) {
+  .content.splash-content {
+    padding-top: 7em;
+  }
+}
