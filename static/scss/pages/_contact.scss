@@ -1,13 +1,13 @@
 // Styles for the contact page
 
 .contactbg {
-  background-image: url('../img/backgrounds/NYC.jpg');
+  background-image: url('../img/backgrounds/gears.jpg');
 }
 
 .contact-content {
   width: 80%;
   margin-top: 8em;
-  font-family: raleway;
+  font-family: 'Raleway';
   b {
     color: #FFFFFF;
     font-size: 125%;
@@ -16,7 +16,11 @@
   p {
     margin-top: 2em;
     font-size: 80%;
-    color: rgba(255, 255, 255, .3);
+    color: rgba(255, 255, 255, .8);
+    
+    &.networks {
+      background-color: rgba(255, 255, 255, .2);
+    }
   }
 }
 
@@ -29,4 +33,11 @@
     border-style: inset;
     border-width: 1px;
     color: #FFFFFF;
+}
+
+.network-image {
+    max-width: 150px;
+    max-height: 80px;
+    margin-left: 10px;
+    padding-left: 5px;
 }

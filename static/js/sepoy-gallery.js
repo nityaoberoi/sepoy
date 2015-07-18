@@ -1,9 +1,10 @@
 $(document).ready(function() {
     $("#lightGallery").lightGallery();
 
-    var images = ["/static/img/gallery/images/ameylighter.jpg",
+    var images = [
         "/static/img/gallery/images/sepoyrivington.jpg",
-        "/static/img/gallery/images/gears.jpg",
+        "/static/img/backgrounds/gears.jpg",
+        "/static/img/gallery/images/ameylighter.jpg",
         "/static/img/gallery/images/anupamkeys.jpg",
         "/static/img/gallery/images/sepoyempirestate.jpg",
         "/static/img/gallery/images/rata.jpg",
