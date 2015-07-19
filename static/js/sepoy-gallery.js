@@ -1,6 +1,4 @@
 $(document).ready(function() {
-    $("#lightGallery").lightGallery();
-
     var images = [
         "/static/img/gallery/images/sepoyrivington.jpg",
         "/static/img/backgrounds/gears.jpg",
@@ -34,5 +32,7 @@ $(document).ready(function() {
         imageDiv.append(image);
         listitem.append(imageDiv);
         $("#lightGallery").append(listitem);
-    })
+    });
+
+    $("#lightGallery").lightGallery();
 });
