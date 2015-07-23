@@ -8858,7 +8858,7 @@ a:hover {
 @media only screen and (max-width: 768px) {
   /* line 192, ../scss/pages/_base.scss */
   .content.splash-content {
-    padding-top: 7em;
+    padding-top: 16em;
   }
 }
 /* line 3, ../scss/pages/_bio.scss */
@@ -8952,12 +8952,8 @@ a:hover {
 .contact-content h3 {
   text-transform: uppercase;
 }
-/* line 21, ../scss/pages/_contact.scss */
-.contact-content p {
-  margin-top: 2em;
-}
 
-/* line 26, ../scss/pages/_contact.scss */
+/* line 22, ../scss/pages/_contact.scss */
 .contact hr {
   display: block;
   margin-top: 1em;
@@ -8969,7 +8965,7 @@ a:hover {
   color: #FFFFFF;
 }
 
-/* line 37, ../scss/pages/_contact.scss */
+/* line 33, ../scss/pages/_contact.scss */
 .network-image {
   max-width: 150px;
   max-height: 80px;
