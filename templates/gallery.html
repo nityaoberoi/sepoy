@@ -2,12 +2,10 @@
 {% block extra_css %}
   <link href="/static/css/lightGallery.css" media="screen" rel="stylesheet" type="text/css" />
 {% endblock %}
-{% block body_classes %}
-full-cover gallerybg
-{% endblock %}
+{% block body_classes %} full-cover gallerybg {% endblock %}
 {% block body %}
 <section class="gallery">
-  <div class="gallery-content container-fluid">
+  <div class="container gallery-content">
     <div class="row">
       <ul id="lightGallery"></ul>
     </div>
