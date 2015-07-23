@@ -8910,15 +8910,31 @@ button.close {
 /* line 7, ../scss/pages/_base.scss */
 body {
   font-family: "Raleway", "Helvetica Neue", Helvetica, Helvetica, Arial, sans-serif;
+  position: relative;
+}
+/* line 11, ../scss/pages/_base.scss */
+body:before {
+  content: '';
+  display: block;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  z-index: -1;
+  background-repeat: no-repeat;
 }
 
-/* line 12, ../scss/pages/_base.scss */
+/* line 28, ../scss/pages/_base.scss */
 a:hover {
   text-decoration: none;
 }
 
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
-/* line 19, ../scss/pages/_base.scss */
+/* line 35, ../scss/pages/_base.scss */
 .homeslider {
   background: no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -8935,7 +8951,7 @@ a:hover {
   width: 100%;
 }
 
-/* line 35, ../scss/pages/_base.scss */
+/* line 51, ../scss/pages/_base.scss */
 .slides {
   height: 100%;
   list-style: none;
@@ -8944,59 +8960,45 @@ a:hover {
   padding: 0;
 }
 
-/* line 43, ../scss/pages/_base.scss */
-.full-cover {
-  background-attachment: fixed;
-  height: 100% !important;
-  position: absolute !important;
-  width: 100% !important;
-  z-index: 2 !important;
-  background: no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-}
-
-/* line 56, ../scss/pages/_base.scss */
+/* line 59, ../scss/pages/_base.scss */
 .slide1 {
   background-image: url("../img/backgrounds/cover.jpg");
 }
 
-/* line 60, ../scss/pages/_base.scss */
+/* line 63, ../scss/pages/_base.scss */
 .slide2 {
   background-image: url("../img/backgrounds/cover2.jpg");
 }
 
-/* line 64, ../scss/pages/_base.scss */
+/* line 67, ../scss/pages/_base.scss */
 .band-title {
   font-weight: 600;
   font-size: 3em;
 }
 
-/* line 69, ../scss/pages/_base.scss */
+/* line 72, ../scss/pages/_base.scss */
 .content {
   height: 100%;
   position: relative;
   width: 100%;
   z-index: 999;
 }
-/* line 75, ../scss/pages/_base.scss */
+/* line 78, ../scss/pages/_base.scss */
 .content.splash-content {
   padding-top: 16em;
 }
 
-/* line 81, ../scss/pages/_base.scss */
+/* line 84, ../scss/pages/_base.scss */
 .header-main h1 {
   color: #fff;
   text-transform: uppercase;
 }
 
-/* line 91, ../scss/pages/_base.scss */
+/* line 94, ../scss/pages/_base.scss */
 .audio-player .controls {
   margin-bottom: 30px;
 }
-/* line 95, ../scss/pages/_base.scss */
+/* line 98, ../scss/pages/_base.scss */
 .audio-player .icon-wrapper {
   border-radius: 100%;
   border: 2px solid white;
@@ -9006,32 +9008,32 @@ a:hover {
   padding: 15px 20px;
   display: inline-block;
 }
-/* line 104, ../scss/pages/_base.scss */
+/* line 107, ../scss/pages/_base.scss */
 .audio-player .icon-wrapper:hover {
   background-color: #fff;
   color: #000;
 }
-/* line 110, ../scss/pages/_base.scss */
+/* line 113, ../scss/pages/_base.scss */
 .audio-player .icon-wrapper.button-play-pause .fa:before {
   content: "\f04b";
 }
-/* line 117, ../scss/pages/_base.scss */
+/* line 120, ../scss/pages/_base.scss */
 .audio-player .playing .icon-wrapper.button-play-pause .fa:before {
   content: "\f04c";
 }
-/* line 122, ../scss/pages/_base.scss */
+/* line 125, ../scss/pages/_base.scss */
 .audio-player .track {
   margin-bottom: 20px;
   opacity: 0.5;
 }
-/* line 127, ../scss/pages/_base.scss */
+/* line 130, ../scss/pages/_base.scss */
 .audio-player .track-progress-bar {
   cursor: pointer;
   height: 2px;
   padding-bottom: 10px;
   position: relative;
 }
-/* line 134, ../scss/pages/_base.scss */
+/* line 137, ../scss/pages/_base.scss */
 .audio-player .bar {
   position: absolute;
   top: 0;
@@ -9040,28 +9042,28 @@ a:hover {
   height: 2px;
   background-color: #fff;
 }
-/* line 142, ../scss/pages/_base.scss */
+/* line 145, ../scss/pages/_base.scss */
 .audio-player .bar.play-bar {
   position: relative;
 }
-/* line 146, ../scss/pages/_base.scss */
+/* line 149, ../scss/pages/_base.scss */
 .audio-player .bar.bg {
   width: 100%;
 }
-/* line 150, ../scss/pages/_base.scss */
+/* line 153, ../scss/pages/_base.scss */
 .audio-player .bar.play-bar {
   height: 3px;
   top: -1px;
 }
-/* line 156, ../scss/pages/_base.scss */
+/* line 159, ../scss/pages/_base.scss */
 .audio-player .currently-playing {
   opacity: 1;
 }
-/* line 159, ../scss/pages/_base.scss */
+/* line 162, ../scss/pages/_base.scss */
 .audio-player .currently-playing .bar.bg {
   opacity: 0.5;
 }
-/* line 164, ../scss/pages/_base.scss */
+/* line 167, ../scss/pages/_base.scss */
 .audio-player .track-info {
   color: #fff;
   cursor: pointer;
@@ -9070,23 +9072,23 @@ a:hover {
   letter-spacing: 1px;
   text-transform: none;
 }
-/* line 173, ../scss/pages/_base.scss */
+/* line 176, ../scss/pages/_base.scss */
 .audio-player .track-title {
   cursor: pointer;
   float: left;
 }
-/* line 178, ../scss/pages/_base.scss */
+/* line 181, ../scss/pages/_base.scss */
 .audio-player .track-duration, .audio-player .track-time {
   float: right;
 }
 
-/* line 183, ../scss/pages/_base.scss */
+/* line 186, ../scss/pages/_base.scss */
 .flex-direction-nav, .flex-control-nav {
   display: none;
 }
 
 /* line 3, ../scss/pages/_bio.scss */
-.biobg {
+.biobg:before {
   background-image: url("../img/backgrounds/blackbrick.jpg");
 }
 
@@ -9116,7 +9118,7 @@ a:hover {
 }
 
 /* line 10, ../scss/pages/_gallery.scss */
-.gallerybg {
+.gallerybg:before {
   background-image: url("../img/backgrounds/guitar.jpg");
 }
 
@@ -9154,7 +9156,7 @@ a:hover {
 }
 
 /* line 3, ../scss/pages/_contact.scss */
-.contactbg {
+.contactbg:before {
   background-image: url("../img/backgrounds/NYC.jpg");
 }
 
