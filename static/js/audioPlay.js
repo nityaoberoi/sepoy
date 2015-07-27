@@ -47,12 +47,14 @@ $(document).ready(function() {
     var next = $('.track.currently-playing').next();
     if (!next.length) next = $('.track').first();
     next.find('.track-info').click();
+    ga('send', 'event', 'next');
   }
 
   function playPreviousTrack() {
     var prev = $('.track.currently-playing').prev();
     if (!prev.length) prev = $('.track').last();
     prev.find('.track-info').click();
+    ga('send', 'event', 'prev');
   }
 
   var audioPlayer = audiojs.create($('.audio-player').get(0), {
@@ -80,6 +82,7 @@ $(document).ready(function() {
                .addClass('previous-playing');
     audioPlayer.load(parentTrack);
     audioPlayer.play();
+    ga('send', 'event', 'play', $(this).find('.track-title').text());
   });
 
   $(document).on('click', '.button-next', playNextTrack);
@@ -96,6 +99,7 @@ $(document).ready(function() {
       // spacebar
     } else if (unicode == 32) {
       audioPlayer.playPause();
+      ga('send', 'event', 'playPause');
     }
   });
 
