@@ -1,10 +1,7 @@
 $(document).ready(function() {
     var images = [
-        "/static/img/gallery/images/sepoyrivington.jpg",
-        "/static/img/backgrounds/gears.jpg",
         "/static/img/gallery/images/ameylighter.jpg",
         "/static/img/gallery/images/anupamkeys.jpg",
-        "/static/img/gallery/images/sepoyempirestate.jpg",
         "/static/img/gallery/images/rata.jpg",
         "/static/img/gallery/images/all_fontanas.jpg",
         "/static/img/gallery/images/sepoytrashbar.jpg",
