@@ -69,11 +69,11 @@ $(document).ready(function() {
       playNextTrack();
     },
     resetTracks: function() {
-      var prevTrack = $('.track.previous-playing');
+      var prevTrack = $('.previous-playing');
       prevTrack.find('.load-bar').css({ width: '0%'});
       prevTrack.find('.play-bar').css({ width: '0%'});
       prevTrack.find('.track-duration').html(prevTrack.data('duration'));
-      prevTrack.removeClass('.previous-playing');
+      prevTrack.removeClass('previous-playing');
     }
   });
 
