@@ -650,8 +650,11 @@
       container[audiojs].helpers.addClass(this.currentTrack, player.currentlyPlayingClass);
     },
     playPause: function() {
-      if (this.playing) this.pause();
-      else this.play();
+          if (this.playing) {
+              this.pause();
+          } else {
+              this.play();
+          }
     },
     play: function() {
       var ios = (/(ipod|iphone|ipad)/i).test(navigator.userAgent);

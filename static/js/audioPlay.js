@@ -47,18 +47,27 @@ $(document).ready(function() {
     var next = $('.track.currently-playing').next();
     if (!next.length) next = $('.track').first();
     next.find('.track-info').click();
-    ga('send', 'event', 'next');
+    ga('send', 'event', 'next', next.find('.track-title').text());
   }
 
   function playPreviousTrack() {
     var prev = $('.track.currently-playing').prev();
     if (!prev.length) prev = $('.track').last();
     prev.find('.track-info').click();
-    ga('send', 'event', 'prev');
+    ga('send', 'event', 'prev', prev.find('.track-title').text());
+  }
+
+  function trackPlayPause() {
+      var track = $('.track.currently-playing');
+      var playOrPause = audioPlayer.playing ? 'pausing': 'playing';
+      ga('send', 'event', playOrPause, $(this).find('.track-title').text());
   }
 
   var audioPlayer = audiojs.create($('.audio-player').get(0), {
-    trackEnded: playNextTrack,
+    trackEnded: function() {
+      ga('send', 'event', 'trackEnded', $(this).find('.track-title').text());
+      playNextTrack();
+    },
     resetTracks: function() {
       var prevTrack = $('.track.previous-playing');
       prevTrack.find('.load-bar').css({ width: '0%'});
@@ -85,23 +94,28 @@ $(document).ready(function() {
     ga('send', 'event', 'play', $(this).find('.track-title').text());
   });
 
+  $(document).on('click', '.button-play-pause', trackPlayPause);
   $(document).on('click', '.button-next', playNextTrack);
   $(document).on('click', '.button-previous', playPreviousTrack);
   // // Keyboard shortcuts
   $(document).keydown(function(e) {
+    var track = $('.track.currently-playing');
     var unicode = e.charCode ? e.charCode : e.keyCode;
        // right arrow
     if (unicode == 39) {
+      ga('send', 'event', 'key-next', $(this).find('.track-title').text());
       playNextTrack();
       // back arrow
     } else if (unicode == 37) {
+      ga('send', 'event', 'key-prev', $(this).find('.track-title').text());
       playPreviousTrack();
       // spacebar
     } else if (unicode == 32) {
-      audioPlayer.playPause();
-      ga('send', 'event', 'playPause');
+        var keyPlayOrPause = audioPlayer.playing ? 'key-pausing': 'key-playing';
+        ga('send', 'event', keyPlayOrPause, $(this).find('.track-title').text());
+        trackPlayPause();
+        audioPlayer.playPause();
     }
   });
-
 });
 
