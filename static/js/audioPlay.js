@@ -60,7 +60,6 @@ $(document).ready(function() {
   function trackPlayPause() {
       var track = $('.track.currently-playing');
       var playOrPause = audioPlayer.playing ? 'pausing': 'playing';
-      console.log('send', 'event', playOrPause, track.find('.track-title').text());
       ga('send', 'event', playOrPause, track.find('.track-title').text());
   }
 
