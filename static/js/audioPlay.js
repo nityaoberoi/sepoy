@@ -58,8 +58,9 @@ $(document).ready(function() {
   }
 
   function trackPlayPause() {
+      // Note: this method is called after play or pause has happened.
       var track = $('.track.currently-playing');
-      var playOrPause = audioPlayer.playing ? 'pausing': 'playing';
+      var playOrPause = audioPlayer.playing ? 'playing': 'pausing';
       ga('send', 'event', playOrPause, track.find('.track-title').text());
   }
 
@@ -113,8 +114,8 @@ $(document).ready(function() {
     } else if (unicode == 32) {
         var keyPlayOrPause = audioPlayer.playing ? 'key-pausing': 'key-playing';
         ga('send', 'event', keyPlayOrPause, $(this).find('.track-title').text());
-        trackPlayPause();
         audioPlayer.playPause();
+        trackPlayPause();
     }
   });
 });
