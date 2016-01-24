@@ -6,11 +6,42 @@ $(document).ready(function() {
 
     var images = [
     {
+        image: "/static/img/gallery/images/sepoy_webster_hall.jpg",
+        caption: "Webster Hall, 1 Dec 2015",
+        danWrightCopyright: true
+    },
+    {
+        image: "/static/img/gallery/images/anupam_webster_hall.jpg",
+        caption: "Webster Hall, 1 Dec 2015",
+        danWrightCopyright: true
+    },
+    {
+        image: "/static/img/gallery/images/rata_webster_hall.jpg",
+        caption: "Webster Hall, 1 Dec 2015",
+        danWrightCopyright: true
+    },
+    {
+        image: "/static/img/gallery/images/sri_webster_hall.jpg",
+        caption: "Webster Hall, 1 Dec 2015",
+        danWrightCopyright: true
+    },
+    {
+        image: "/static/img/gallery/images/amey_webster_hall.jpg",
+        caption: "Webster Hall, 1 Dec 2015",
+        danWrightCopyright: true
+    },
+    {
+        image: "/static/img/gallery/images/anupam_raises_hand_webster_hall.jpg",
+        caption: "Webster Hall, 1 Dec 2015",
+        danWrightCopyright: true
+    },
+    {
         image: "/static/img/gallery/images/anupamkeysmercurylounge.jpg",
         caption: "Mercury Lounge, 15 Nov 2015"
     },
     {
         image: "/static/img/gallery/images/sepoy_digital_small_Car_sitting.jpg",
+        caption: 'Sepoy 2015',
         kasiaCredit: true,
     },
     {
@@ -82,25 +113,27 @@ $(document).ready(function() {
     var kasiaCredit = 'Credit: <a href="http://www.kasiagrabek.com">Kasia Grabek</a>';
 
     $.each(images, function(index, img) {
-        console.log('image', img.image);
         var data = {
             'class': 'col-xs-12 col-sm-6 col-md-4',
             'data-src': img.image,
         };
 
-        // TODO(sri): Maybe allow captions along with credits.
-        if (img.caption) {
-            data['data-sub-html'] = '<div class="image-caption">' + img.caption + '</div>';
-        }
-
+        caption = img.caption;
+        var credit;
         if (img.kasiaCredit) {
-            data['data-sub-html'] = '<div class="image-caption">' + kasiaCredit + '</div>';
-        } else if (img.danWrightCopyright) {
-            data['data-sub-html'] = '<div class="image-caption">' + danWrightCopyright + '</div>';
+            credit = '<div class="image-caption">' + kasiaCredit + '</div>';
+        } else if (img.danWrightCopyright) {    
+            credit = '<div class="image-caption">' + danWrightCopyright + '</div>';
         }
 
-        console.log('data', data);
+        if (credit) {
+            caption = caption ? caption + "<br>" + credit : credit;
+        }
 
+        if (caption) {
+            data['data-sub-html'] = '<div class="image-caption">' + caption + '</div>';
+        }
+    
         var listitem = $("<li/>", data);
         var imageDiv = $("<div/>", {
             class: 'gallery-image'
