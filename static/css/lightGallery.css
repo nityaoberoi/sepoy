@@ -627,3 +627,11 @@ left: 0;
 	margin-bottom: 5px;
 	margin-top: 15px;
 }
+
+.image-caption {
+	font-family: sans-serif;
+	font-weight: light;
+	font-size: 12px;
+	margin-top: 1em;
+	color: #aaa;
+}
