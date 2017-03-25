@@ -24,6 +24,10 @@ def shows():
 def gallery():
     return render_template('gallery.html')
 
+@app.route('/videos/')
+def videos():
+    return render_template('videos.html')
+
 @app.route('/contact/')
 def contact():
     return render_template('contact.html')

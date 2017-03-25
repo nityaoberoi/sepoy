@@ -8965,3 +8965,42 @@ a:hover {
   margin-left: 10px;
   padding-left: 5px;
 }
+
+/* line 3, ../scss/pages/_shows.scss */
+.showsbg:before {
+  background-image: url("../img/backgrounds/NYC.jpg");
+}
+
+/* line 3, ../scss/pages/_videos.scss */
+.video-content {
+  overflow: hidden;
+  position: relative;
+  width: 80%;
+  margin: 8em auto 0;
+}
+
+/* line 10, ../scss/pages/_videos.scss */
+.videosbg:before {
+  background-image: url("../img/backgrounds/NYC.jpg");
+}
+
+/* line 14, ../scss/pages/_videos.scss */
+.videos {
+  margin: 30px auto;
+}
+
+/* line 18, ../scss/pages/_videos.scss */
+.video-item {
+  margin: 0 30px 20px 0;
+  overflow: hidden;
+  position: relative;
+  padding-top: 60%;
+}
+/* line 24, ../scss/pages/_videos.scss */
+.video-item .img-responsive {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

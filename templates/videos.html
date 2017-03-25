@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block extra_css %}
+  <link href="/static/css/lightGallery.css" media="screen" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block body_classes %} videosbg {% endblock %}
+{% block body %}
+<div id="ytplayer"></div>
+
+<script>
+  // Load the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/player_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+</script>
+
+<section class="videos">
+  <div class="container video-content">
+    <div class="row">
+      <ul id="video-gallery"></ul>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block extra_js %}
+<script src="/static/js/libs/lightGallery.js"></script>
+<script src="/static/js/sepoy-video-gallery.js"></script>
+{% endblock %}
