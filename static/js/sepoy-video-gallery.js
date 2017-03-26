@@ -19,9 +19,18 @@ $(document).ready(function() {
             class: "img-responsive center-block",
             src: img.imageUrl
         });
+        var playButton = $('<div class="demo-gallery"><img src="/static/img/play-button.png" /></div>')
         listitem.append(image);
+        listitem.append(playButton);
         $("#video-gallery").append(listitem);
     });
 
-    $("#video-gallery").lightGallery();
+    $("#video-gallery").lightGallery({
+        youtubePlayerParams: {
+            modestbranding: 1,
+            showinfo: 0,
+            rel: 0,
+            controls: 0
+        }
+    });
 });

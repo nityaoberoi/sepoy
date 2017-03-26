@@ -1,11 +1,9 @@
 {% extends "base.html" %}
 {% block extra_css %}
-  <link href="/static/css/lightGallery.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/static/css/lightgallery.min.css" media="screen" rel="stylesheet" type="text/css" />
 {% endblock %}
 {% block body_classes %} videosbg {% endblock %}
 {% block body %}
-<div id="ytplayer"></div>
-
 <script>
   // Load the IFrame Player API code asynchronously.
   var tag = document.createElement('script');
@@ -23,6 +21,7 @@
 </section>
 {% endblock %}
 {% block extra_js %}
-<script src="/static/js/libs/lightGallery.js"></script>
+<script src="/static/js/libs/lightgallery.min.js"></script>
+<script src="/static/js/libs/lg-video.min.js"></script>
 <script src="/static/js/sepoy-video-gallery.js"></script>
 {% endblock %}
