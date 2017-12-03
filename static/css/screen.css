@@ -8990,6 +8990,11 @@ a:hover {
 }
 
 /* line 18, ../scss/pages/_videos.scss */
+.video-row {
+  margin: 20px auto;
+}
+
+/* line 22, ../scss/pages/_videos.scss */
 .img-responsive {
   -webkit-transition: -webkit-transform 0.15s ease 0s;
   -moz-transition: -moz-transform 0.15s ease 0s;
@@ -8999,7 +9004,7 @@ a:hover {
   transform: scale3d(1, 1, 1);
 }
 
-/* line 27, ../scss/pages/_videos.scss */
+/* line 31, ../scss/pages/_videos.scss */
 .demo-gallery {
   background-color: rgba(0, 0, 0, 0.1);
   bottom: 0;
@@ -9011,7 +9016,7 @@ a:hover {
   -o-transition: background-color 0.15s ease 0s;
   transition: background-color 0.15s ease 0s;
 }
-/* line 38, ../scss/pages/_videos.scss */
+/* line 42, ../scss/pages/_videos.scss */
 .demo-gallery img {
   left: 50%;
   position: absolute;
