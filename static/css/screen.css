@@ -8712,7 +8712,7 @@ a:hover {
   background-size: cover;
   -o-background-size: cover;
   background-color: #CCC;
-  background-image: url("../img/backgrounds/cover.jpg");
+  background-image: url("../img/backgrounds/cover2.jpg");
   border: 0px !important;
   height: 100vh;
   margin: 0;
@@ -9029,4 +9029,13 @@ a:hover {
   margin-top: -24px;
   opacity: 0.8;
   width: 48px;
+}
+
+/* line 57, ../scss/pages/_videos.scss */
+.video-title {
+  position: absolute;
+  bottom: 5%;
+  width: 100%;
+  color: #f8f8f8;
+  font-size: 1.5em;
 }
