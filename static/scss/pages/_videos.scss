@@ -54,10 +54,14 @@
   }
 }
 
+
 .video-title {
-  position:absolute;
-  bottom: 5%;
-  width:100%;
+  width: 100%;
   color: #f8f8f8;
+  margin-top: 2em;
+  opacity: 0.8;
   font-size: 1.5em;
+  text-align: center;
+  vertical-align: text-bottom;
+  pointer-events: none;
 }

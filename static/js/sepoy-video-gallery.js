@@ -1,21 +1,27 @@
 $(document).ready(function() {
 
 	var videos = [
+    {
+        videoUrl: "https://www.youtube.com/watch?v=D9S-x29fosQ",
+        imageUrl: "http://img.youtube.com/vi/D9S-x29fosQ/0.jpg",
+        title: "Loved In The USA, Live Studio Recording (Jun 2015)"
+    },
+    {
+        videoUrl: "https://www.youtube.com/watch?v=6v88tNhkzWw",
+        imageUrl: "http://img.youtube.com/vi/6v88tNhkzWw/0.jpg",
+        title: "Hopeless Romantic, Live Studio Recording (Jun 2015)"
+    },
 	{
-	    videoUrl: "https://www.youtube.com/watch?v=D9S-x29fosQ",
-	    imageUrl: "http://img.youtube.com/vi/D9S-x29fosQ/0.jpg",
-            title: "Loved In The USA"
+	    videoUrl: "https://www.youtube.com/watch?v=MSJRSQsOafs",
+	    imageUrl: "http://img.youtube.com/vi/MSJRSQsOafs/0.jpg",
+        title: "Come Home, Live at Arlene's Grocery (Jul 2015)"
 	},
-	{
-	    videoUrl: "https://www.youtube.com/watch?v=TtajLgjjrOU",
-	    imageUrl: "http://img.youtube.com/vi/TtajLgjjrOU/0.jpg",
-            title: "Hopeless Romantic"
-	},
-        {
-            videoUrl: "https://www.youtube.com/watch?v=rZ4cAHGz8G0",
-            imageUrl: "http://img.youtube.com/vi/rZ4cAHGz8G0/0.jpg",
-             title: "Reno"
-        }
+    /* private video
+    {
+        videoUrl: "https://www.youtube.com/watch?v=HgZcqLSlcPE",
+        imageUrl: "http://img.youtube.com/vi/HgZcqLSlcPE/0.jpg",
+        title: "Lingering On, Live at Mercury Lounge (March 2016)"
+    }*/
 	];
 
 	$.each(videos, function(index, video) {
@@ -25,23 +31,27 @@ $(document).ready(function() {
             'href': video.videoUrl
         };
 
+        var title = $('<p/>', {
+            class:'video-title',
+            text: video.title
+        });
+        title.off("click");
+
         var listitem = $("<a/>", data);
         var image = $("<img/>", {
             class: "img-responsive center-block",
             src: video.imageUrl
         });
         var playButton = $('<div class="demo-gallery"><img src="/static/img/play-button.png" /></div>')
-        var title = $("<p />", {
-            class:'video-title',
-            text: video.title
-        });
-
 
         listitem.append(image);
         listitem.append(playButton);
-        listitem.append(title);
 
-        $("#video-gallery").append(listitem);
+        $("#video-gallery").append($("<li/>").append(title).append(listitem));
+    });
+
+    $("#video-gallery").click(function() {
+        $("p").off("click");
     });
 
     $("#video-gallery").lightGallery({

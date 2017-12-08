@@ -9031,11 +9031,14 @@ a:hover {
   width: 48px;
 }
 
-/* line 57, ../scss/pages/_videos.scss */
+/* line 58, ../scss/pages/_videos.scss */
 .video-title {
-  position: absolute;
-  bottom: 5%;
   width: 100%;
   color: #f8f8f8;
+  margin-top: 2em;
+  opacity: 0.8;
   font-size: 1.5em;
+  text-align: center;
+  vertical-align: text-bottom;
+  pointer-events: none;
 }
