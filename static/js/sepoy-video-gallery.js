@@ -31,11 +31,13 @@ $(document).ready(function() {
             'href': video.videoUrl
         };
 
+        /*
         var title = $('<p/>', {
             class:'video-title',
             text: video.title
         });
         title.off("click");
+        */
 
         var listitem = $("<a/>", data);
         var image = $("<img/>", {
@@ -47,7 +49,7 @@ $(document).ready(function() {
         listitem.append(image);
         listitem.append(playButton);
 
-        $("#video-gallery").append($("<li/>").append(title).append(listitem));
+        $("#video-gallery").append(listitem);
     });
 
     $("#video-gallery").click(function() {
