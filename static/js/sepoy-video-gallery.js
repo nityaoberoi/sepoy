@@ -4,17 +4,17 @@ $(document).ready(function() {
     {
         videoUrl: "https://www.youtube.com/watch?v=D9S-x29fosQ",
         imageUrl: "http://img.youtube.com/vi/D9S-x29fosQ/0.jpg",
-        title: "Loved In The USA, Live Studio Recording (Jun 2015)"
+        title: "Loved In The USA"
     },
     {
         videoUrl: "https://www.youtube.com/watch?v=6v88tNhkzWw",
         imageUrl: "http://img.youtube.com/vi/6v88tNhkzWw/0.jpg",
-        title: "Hopeless Romantic, Live Studio Recording (Jun 2015)"
+        title: "Hopeless Romantic"
     },
 	{
 	    videoUrl: "https://www.youtube.com/watch?v=MSJRSQsOafs",
 	    imageUrl: "http://img.youtube.com/vi/MSJRSQsOafs/0.jpg",
-        title: "Come Home, Live at Arlene's Grocery (Jul 2015)"
+        title: "Come Home"
 	},
     /* private video
     {
@@ -31,23 +31,29 @@ $(document).ready(function() {
             'href': video.videoUrl
         };
 
-        /*
-        var title = $('<p/>', {
-            class:'video-title',
+        var listitem = $("<li/>", data);
+
+        var title = $('<h3/>', {
+            class: 'video-title',
             text: video.title
         });
-        title.off("click");
-        */
-
-        var listitem = $("<a/>", data);
+        var containerDiv = $('<div />', {
+            class: 'demo-gallery'
+        });
         var image = $("<img/>", {
             class: "img-responsive center-block",
             src: video.imageUrl
         });
-        var playButton = $('<div class="demo-gallery"><img src="/static/img/play-button.png" /></div>')
+        var playButton = $('<img />', {
+            class: 'play-button',
+            src: "/static/img/play-button.png"
+        })
 
-        listitem.append(image);
-        listitem.append(playButton);
+        listitem.append(title);
+        listitem.append(containerDiv);
+
+        containerDiv.append(image);
+        containerDiv.append(playButton);
 
         $("#video-gallery").append(listitem);
     });
@@ -57,6 +63,7 @@ $(document).ready(function() {
     });
 
     $("#video-gallery").lightGallery({
+        loadYoutubeThumbnail: true,
         youtubePlayerParams: {
             modestbranding: 1,
             showinfo: 0,
